@@ -1,15 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Trading.net</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart - Clone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Welcome to Trading.net</h1>
-    <p>Trusted Trading Platform</p>
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="logo-area" onclick="showPage('home')">
+        <div>
+            <div class="logo-text">Flipkart<span>Explore Plus</span></div>
+        </div>
+    </div>
+    <div class="search-box">
+        <input type="text" placeholder="Search for products, brands and more" id="searchInput" onkeyup="filterProducts()">
+        <button onclick="filterProducts()">&#128269;</button>
+    </div>
+    <div class="header-actions">
+        <span onclick="showPage('home')">Home</span>
+        <span onclick="showPage('cart')">Cart <span class="cart-badge" id="cartCount">0</span></span>
+    </div>
+</header>
 
-    <button>Get Started</button>
+<!-- ===== PAGES ===== -->
+<div class="pages">
 
+    <!-- HOME PAGE -->
+    <div class="page active" id="page-home">
+        <div class="category-strip">
+            <div class="category-item" onclick="filterCategory('all')"><span class="icon">📱</span>All</div>
+            <div class="category-item" onclick="filterCategory('Electronics')"><span class="icon">📱</span>Electronics</div>
+            <div class="category-item" onclick="filterCategory('Clothing')"><span class="icon">👕</span>Clothing</div>
+            <div class="category-item" onclick="filterCategory('Home')"><span class="icon">🏠</span>Home</div>
+            <div class="category-item" onclick="filterCategory('Books')"><span class="icon">📚</span>Books</div>
+            <div class="category-item" onclick="filterCategory('Beauty')"><span class="icon">💄</span>Beauty</div>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <!-- CART PAGE -->
+    <div class="page" id="page-cart">
+        <div class="cart-layout">
+            <div class="cart-items" id="cartItemsContainer">
+                <h2>My Cart</h2>
+                <div id="cartItemsList"></div>
+            </div>
+            <div class="cart-summary" id="cartSummary">
+                <h3>PRICE DETAILS</h3>
+                <div id="priceDetails"></div>
+                <button class="place-order-btn" onclick="proceedToAddress()">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADDRESS PAGE -->
+    <div class="page" id="page-address">
+        <form class="address-form" id="addressForm" onsubmit="saveAddress(event)">
+            <h2>Delivery Address</h2>
+            <label>Full Name</label>
+            <input type="text" id="addrName" placeholder="John Doe" required>
+
+            <label>Mobile Number</label>
+            <input type="tel" id="addrPhone" placeholder="9876543210" pattern="[0-9]{10}" required>
+
+            <label>Pin Code</label>
+            <input type="text" id="addrPincode" placeholder="110001" required>
+
+            <label>Address</label>
+            <textarea id="addrAddress" placeholder="Flat / House / Building / Street" required></textarea>
+
+            <label>City</label>
+            <input type="text" id="addrCity" placeholder="New Delhi" required>
+
+            <div class="row2">
+                <div>
+                    <label>State</label>
+                    <input type="text" id="addrState" placeholder="Delhi" required>
+                </div>
+                <div>
+                    <label>Landmark (optional)</label>
+                    <input type="text" id="addrLandmark" placeholder="Near ...">
+                </div>
+            </div>
+            <button type="submit" class="btn-submit">Save & Continue</button>
+        </form>
+    </div>
+
+    <!-- PAYMENT PAGE -->
+    <div class="page" id="page-payment">
+        <div class="payment-container">
+            <div class="payment-header">Choose Payment Method</div>
+            <div class="payment-body">
+
+                <label class="pay-method">
+                    <input type="radio" name="payment" value="credit" onchange="selectedPayment='credit'">
+                    <span class="method-icon">💳</span>
+                    <div><div class="method-label">Credit Card</div><div class="method-desc">Visa, Mastercard, RuPay</div></div>
+                </label>
+
+                <label class="pay-method">
+                    <input type="radio" name="payment" value="debit" onchange="selectedPayment='debit'">
+                    <span class="method-icon">🏦</span>
+                    <div><div class="method-label">Debit Card</div><div class="method-desc">All banks supported</div></div>
+                </label>
+
+                <label class="pay-method">
+                    <input type="radio" name="payment" value="net" onchange="selectedPayment='net'">
+                    <span class="method-icon">🌐</span>
+                    <div><div class="method-label">Net Banking</div><div class="method-desc">SBI, HDFC, ICICI, Axis & more</div></div>
+                </label>
+
+                <label class="pay-method">
+                    <input type="radio" name="payment" value="upi" onchange="selectedPayment='upi'" checked>
+                    <span class="method-icon">📱</span>
+                    <div><div class="method-label">UPI / QR</div><div class="method-desc">Google Pay, PhonePe, Paytm</div></div>
+                </label>
+
+                <label class="pay-method">
+                    <input type="radio" name="payment" value="cod" onchange="selectedPayment='cod'">
+                    <span class="method-icon">💵</span>
+                    <div><div class="method-label">Cash on Delivery</div><div class="method-desc">Pay when delivered</div></div>
+                </label>
+
+                <label class="pay-method">
+                    <input type="radio" name="payment" value="wallet" onchange="selectedPayment='wallet'">
+                    <span class="method-icon">👛</span>
+                    <div><div class="method-label">Wallet</div><div class="method-desc">Paytm, Mobikwik, Freecharge</div></div>
+                </label>
+
+                <!-- PARTIAL PAY / EMI SECTION -->
+                <div class="emi-section" id="emiSection">
+                    <h4>Partial Pay / EMI Options</h4>
+                    <p style="font-size:13px; color:#535665; margin-bottom:10px;">
+                        Pay a small amount now and the rest in easy EMIs at 3% interest per month.
+                    </p>
+                    <div class="emi-row">
+                        <span>Down Payment (20%)</span>
+                        <span class="emi-amount" id="emiDown">₹0</span>
+                    </div>
+                    <div class="emi-row">
+                        <span>Monthly EMI (3% p.m., 6 months)</span>
+                        <span class="emi-amount" id="emiMonthly">₹0</span>
+                    </div>
+                    <div class="emi-row">
+                        <span>Total Payable</span>
+                        <span class="emi-amount" id="emiTotal">₹0</span>
+                    </div>
+                    <button class="btn-pay-now" onclick="processPartialPay()">Pay via Partial Pay / EMI</button>
+                </div>
+
+                <button class="btn-pay-now" onclick="processPayment()" style="margin-top:10px;">Confirm & Pay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFIRMATION PAGE -->
+    <div class="page" id="page-confirm">
+        <div class="order-confirm">
+            <div class="check">&#10004;</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order has been confirmed. You will receive a confirmation message shortly.</p>
+            <button class="btn-shop-now" onclick="showPage('home')" style="margin-top:20px;">Continue Shopping</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
