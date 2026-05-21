@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipkart - Clone</title>
+    <title>Apple iPhone 17 Pro Max (256 GB) - Flipkart</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,13 +11,14 @@
 <!-- ===== HEADER ===== -->
 <header class="header">
     <div class="logo-area" onclick="showPage('home')">
-        <div>
-            <div class="logo-text">Flipkart<span>Explore Plus</span></div>
-        </div>
+        <svg width="90" height="28" viewBox="0 0 90 28" fill="none">
+            <text x="0" y="22" font-family="Arial" font-weight="700" font-size="20" fill="white" font-style="italic">Flipkart</text>
+            <text x="0" y="28" font-family="Arial" font-weight="400" font-size="9" fill="#ffe500">Explore Plus</text>
+        </svg>
     </div>
     <div class="search-box">
-        <input type="text" placeholder="Search for products, brands and more" id="searchInput" onkeyup="filterProducts()">
-        <button onclick="filterProducts()">&#128269;</button>
+        <input type="text" placeholder="Search for products, brands and more" id="searchInput">
+        <button>&#128269;</button>
     </div>
     <div class="header-actions">
         <span onclick="showPage('home')">Home</span>
@@ -28,27 +29,143 @@
 <!-- ===== PAGES ===== -->
 <div class="pages">
 
-    <!-- HOME PAGE -->
+    <!-- ============ HOME / PRODUCT PAGE ============ -->
     <div class="page active" id="page-home">
-        <div class="category-strip">
-            <div class="category-item" onclick="filterCategory('all')"><span class="icon">📱</span>All</div>
-            <div class="category-item" onclick="filterCategory('Electronics')"><span class="icon">📱</span>Electronics</div>
-            <div class="category-item" onclick="filterCategory('Clothing')"><span class="icon">👕</span>Clothing</div>
-            <div class="category-item" onclick="filterCategory('Home')"><span class="icon">🏠</span>Home</div>
-            <div class="category-item" onclick="filterCategory('Books')"><span class="icon">📚</span>Books</div>
-            <div class="category-item" onclick="filterCategory('Beauty')"><span class="icon">💄</span>Beauty</div>
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <span>Electronics</span> <span class="sep">›</span>
+            <span>Mobiles & Accessories</span> <span class="sep">›</span>
+            <span>Smartphones</span> <span class="sep">›</span>
+            <span>Apple Mobiles</span> <span class="sep">›</span>
+            <span class="active">Apple iPhone 17 Pro Max</span>
         </div>
-        <div class="product-grid" id="productGrid"></div>
+
+        <div class="product-layout">
+            <!-- LEFT: Image Gallery -->
+            <div class="product-left">
+                <div class="main-image" id="mainImageContainer">
+                    <img id="mainProductImg" src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/d/c/j/-original-imaghx5ggdchzghh.jpeg?q=70" alt="iPhone 17 Pro Max Cosmic Orange">
+                </div>
+                <div class="thumbnails" id="thumbnails">
+                    <img class="thumb active" src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/d/c/j/-original-imaghx5ggdchzghh.jpeg?q=70" onclick="changeImage(this)" alt="Front">
+                    <img class="thumb" src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/0/g/2/-original-imaghx5gj9mzfmcz.jpeg?q=70" onclick="changeImage(this)" alt="Back">
+                    <img class="thumb" src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/n/8/d/-original-imaghx5ggi2nhnhh.jpeg?q=70" onclick="changeImage(this)" alt="Side">
+                    <img class="thumb" src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/m/r/k/-original-imaghx5gvffmbdjn.jpeg?q=70" onclick="changeImage(this)" alt="Camera">
+                </div>
+            </div>
+
+            <!-- MIDDLE: Product Details -->
+            <div class="product-middle">
+                <h1 class="product-title">Apple iPhone 17 Pro Max (Cosmic Orange, 256 GB)</h1>
+                <div class="rating-row">
+                    <span class="rating-badge">4.7 <span>⭐</span></span>
+                    <span class="rating-count">2,34,567 Ratings & 18,234 Reviews</span>
+                </div>
+                <div class="extra-offers">
+                    <span class="offer-badge">⚡ Extra ₹9,000 off</span>
+                    <span>with HDFC/Axis/ICICI Credit Cards</span>
+                </div>
+                <div class="price-section">
+                    <div class="current-price" id="displayPrice">₹1,49,900</div>
+                    <div class="old-price">₹1,59,900</div>
+                    <div class="discount-tag">6% off</div>
+                </div>
+                <div class="tax-info">inclusive of all taxes</div>
+
+                <!-- Color Selector -->
+                <div class="selector-section">
+                    <div class="section-label">Color: <strong id="selectedColorText">Cosmic Orange</strong></div>
+                    <div class="color-options">
+                        <div class="color-swatch" style="background:#e87a3d" data-color="Cosmic Orange" onclick="selectColor(this)"></div>
+                        <div class="color-swatch" style="background:#a0b0c0" data-color="Silver" onclick="selectColor(this)"></div>
+                        <div class="color-swatch" style="background:#1c2a4a" data-color="Deep Blue" onclick="selectColor(this)"></div>
+                    </div>
+                </div>
+
+                <!-- Storage Selector -->
+                <div class="selector-section">
+                    <div class="section-label">Storage: <strong>256 GB</strong></div>
+                    <div class="storage-options">
+                        <div class="storage-chip active">256 GB</div>
+                        <div class="storage-chip">512 GB <span class="chip-price">+₹14,000</span></div>
+                        <div class="storage-chip">1 TB <span class="chip-price">+₹35,000</span></div>
+                    </div>
+                </div>
+
+                <!-- Highlights -->
+                <div class="highlights">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>6.9-inch Super Retina XDR OLED Display with ProMotion (120Hz)</li>
+                        <li>A19 Pro Chip with 12GB RAM</li>
+                        <li>Triple 48MP Fusion Camera System (Main + Ultra Wide + Telephoto)</li>
+                        <li>18MP Center Stage Front Camera</li>
+                        <li>8x Optical Zoom, 40x Digital Zoom</li>
+                        <li>IP68 Water Resistance, Ceramic Shield 2</li>
+                        <li>iOS 26 with Apple Intelligence</li>
+                        <li>Up to 37 hours Video Playback</li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="product-buttons">
+                    <button class="btn-add-cart-large" onclick="addToCart()">
+                        🛒 Add to Cart
+                    </button>
+                    <button class="btn-buy-now-large" onclick="buyNow()">
+                        ⚡ Buy Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT: Seller Card -->
+            <div class="product-right">
+                <div class="seller-card">
+                    <h4>Delivery Options</h4>
+                    <div class="delivery-row">
+                        <span class="label">Seller:</span>
+                        <span><strong>MobiTech Retail</strong></span>
+                    </div>
+                    <div class="delivery-row">
+                        <span class="label">Delivery by:</span>
+                        <span><strong style="color:#388e3c;">Tomorrow, 22 May</strong></span>
+                    </div>
+                    <div class="delivery-row">
+                        <span class="label">Warranty:</span>
+                        <span>1 Year Apple Warranty</span>
+                    </div>
+                    <div class="delivery-row">
+                        <span class="label">Returns:</span>
+                        <span>7 Days Replacement Policy</span>
+                    </div>
+
+                    <hr>
+                    <div class="offers-list">
+                        <h4>Available Offers</h4>
+                        <div class="offer-item">🏦 ₹9,000 off with HDFC/Axis/ICICI Credit Card</div>
+                        <div class="offer-item">🔄 Up to ₹55,000 off with Exchange</div>
+                        <div class="offer-item">📱 No Cost EMI for 6 months on select cards</div>
+                        <div class="offer-item">🎁 Free AirPods Pro with select bank offers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== MORE PRODUCTS SECTION ===== -->
+        <div class="more-products-section">
+            <h2>Similar Products You Might Like</h2>
+            <div class="product-grid" id="productGrid"></div>
+        </div>
     </div>
 
-    <!-- CART PAGE -->
+    <!-- ============ CART PAGE ============ -->
     <div class="page" id="page-cart">
         <div class="cart-layout">
-            <div class="cart-items" id="cartItemsContainer">
+            <div class="cart-items">
                 <h2>My Cart</h2>
                 <div id="cartItemsList"></div>
             </div>
-            <div class="cart-summary" id="cartSummary">
+            <div class="cart-summary">
                 <h3>PRICE DETAILS</h3>
                 <div id="priceDetails"></div>
                 <button class="place-order-btn" onclick="proceedToAddress()">Place Order</button>
@@ -56,7 +173,7 @@
         </div>
     </div>
 
-    <!-- ADDRESS PAGE -->
+    <!-- ============ ADDRESS PAGE ============ -->
     <div class="page" id="page-address">
         <form class="address-form" id="addressForm" onsubmit="saveAddress(event)">
             <h2>Delivery Address</h2>
@@ -69,7 +186,7 @@
             <label>Pin Code</label>
             <input type="text" id="addrPincode" placeholder="110001" required>
 
-            <label>Address</label>
+            <label>Address (House No., Street, Area)</label>
             <textarea id="addrAddress" placeholder="Flat / House / Building / Street" required></textarea>
 
             <label>City</label>
@@ -89,80 +206,133 @@
         </form>
     </div>
 
-    <!-- PAYMENT PAGE -->
+    <!-- ============ PAYMENT PAGE ============ -->
     <div class="page" id="page-payment">
         <div class="payment-container">
             <div class="payment-header">Choose Payment Method</div>
             <div class="payment-body">
-
-                <label class="pay-method">
-                    <input type="radio" name="payment" value="credit" onchange="selectedPayment='credit'">
-                    <span class="method-icon">💳</span>
-                    <div><div class="method-label">Credit Card</div><div class="method-desc">Visa, Mastercard, RuPay</div></div>
-                </label>
-
-                <label class="pay-method">
-                    <input type="radio" name="payment" value="debit" onchange="selectedPayment='debit'">
-                    <span class="method-icon">🏦</span>
-                    <div><div class="method-label">Debit Card</div><div class="method-desc">All banks supported</div></div>
-                </label>
-
-                <label class="pay-method">
-                    <input type="radio" name="payment" value="net" onchange="selectedPayment='net'">
-                    <span class="method-icon">🌐</span>
-                    <div><div class="method-label">Net Banking</div><div class="method-desc">SBI, HDFC, ICICI, Axis & more</div></div>
-                </label>
-
-                <label class="pay-method">
-                    <input type="radio" name="payment" value="upi" onchange="selectedPayment='upi'" checked>
-                    <span class="method-icon">📱</span>
-                    <div><div class="method-label">UPI / QR</div><div class="method-desc">Google Pay, PhonePe, Paytm</div></div>
-                </label>
-
-                <label class="pay-method">
-                    <input type="radio" name="payment" value="cod" onchange="selectedPayment='cod'">
-                    <span class="method-icon">💵</span>
-                    <div><div class="method-label">Cash on Delivery</div><div class="method-desc">Pay when delivered</div></div>
-                </label>
-
-                <label class="pay-method">
-                    <input type="radio" name="payment" value="wallet" onchange="selectedPayment='wallet'">
-                    <span class="method-icon">👛</span>
-                    <div><div class="method-label">Wallet</div><div class="method-desc">Paytm, Mobikwik, Freecharge</div></div>
-                </label>
-
-                <!-- PARTIAL PAY / EMI SECTION -->
-                <div class="emi-section" id="emiSection">
-                    <h4>Partial Pay / EMI Options</h4>
-                    <p style="font-size:13px; color:#535665; margin-bottom:10px;">
-                        Pay a small amount now and the rest in easy EMIs at 3% interest per month.
-                    </p>
-                    <div class="emi-row">
-                        <span>Down Payment (20%)</span>
-                        <span class="emi-amount" id="emiDown">₹0</span>
-                    </div>
-                    <div class="emi-row">
-                        <span>Monthly EMI (3% p.m., 6 months)</span>
-                        <span class="emi-amount" id="emiMonthly">₹0</span>
-                    </div>
-                    <div class="emi-row">
-                        <span>Total Payable</span>
-                        <span class="emi-amount" id="emiTotal">₹0</span>
-                    </div>
-                    <button class="btn-pay-now" onclick="processPartialPay()">Pay via Partial Pay / EMI</button>
+                <div class="order-summary-bar" id="paymentOrderSummary">
+                    <span>Order Total: <strong id="paymentTotalAmount">₹1,49,900</strong></span>
+                    <span>Delivery: <strong style="color:#388e3c;">FREE</strong></span>
                 </div>
 
-                <button class="btn-pay-now" onclick="processPayment()" style="margin-top:10px;">Confirm & Pay</button>
+                <!-- UPI / QR (Default selected + QR) -->
+                <label class="pay-method active-method" onclick="selectPaymentMethod(this, 'upi')">
+                    <input type="radio" name="payment" value="upi" checked>
+                    <span class="method-icon">📱</span>
+                    <div>
+                        <div class="method-label">UPI / QR <span class="tag tag-green">Most Used</span></div>
+                        <div class="method-desc">Google Pay, PhonePe, Paytm, BHIM</div>
+                    </div>
+                </label>
+                <div class="qr-section" id="upiQrSection">
+                    <div class="qr-code">
+                        <div class="qr-placeholder" id="qrPlaceholder">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=flipkart@upi&pn=Flipkart%20Payments&am=149900&cu=INR" alt="UPI QR Code" id="qrImage">
+                        </div>
+                        <p>Scan with any UPI app</p>
+                        <div class="upi-input-row">
+                            <input type="text" placeholder="OR enter UPI ID (e.g. name@paytm)" id="upiIdInput">
+                            <button onclick="verifyUpiPayment()">Pay</button>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="pay-method" onclick="selectPaymentMethod(this, 'credit')">
+                    <input type="radio" name="payment" value="credit">
+                    <span class="method-icon">💳</span>
+                    <div>
+                        <div class="method-label">Credit Card <span class="tag tag-orange">Extra ₹9,000 Off</span></div>
+                        <div class="method-desc">Visa, Mastercard, RuPay - All Banks</div>
+                    </div>
+                </label>
+
+                <label class="pay-method" onclick="selectPaymentMethod(this, 'debit')">
+                    <input type="radio" name="payment" value="debit">
+                    <span class="method-icon">🏦</span>
+                    <div>
+                        <div class="method-label">Debit Card</div>
+                        <div class="method-desc">All Banks Supported</div>
+                    </div>
+                </label>
+
+                <label class="pay-method" onclick="selectPaymentMethod(this, 'net')">
+                    <input type="radio" name="payment" value="net">
+                    <span class="method-icon">🌐</span>
+                    <div>
+                        <div class="method-label">Net Banking</div>
+                        <div class="method-desc">SBI, HDFC, ICICI, Axis, Yes Bank & 40+ more</div>
+                    </div>
+                </label>
+
+                <label class="pay-method" onclick="selectPaymentMethod(this, 'cod')">
+                    <input type="radio" name="payment" value="cod">
+                    <span class="method-icon">💵</span>
+                    <div>
+                        <div class="method-label">Cash on Delivery</div>
+                        <div class="method-desc">Pay when delivered - ₹0 extra</div>
+                    </div>
+                </label>
+
+                <label class="pay-method" onclick="selectPaymentMethod(this, 'wallet')">
+                    <input type="radio" name="payment" value="wallet">
+                    <span class="method-icon">👛</span>
+                    <div>
+                        <div class="method-label">Wallet</div>
+                        <div class="method-desc">Paytm Wallet, Mobikwik, Freecharge, Amazon Pay</div>
+                    </div>
+                </label>
+
+                <!-- EMI / Partial Pay Section -->
+                <div class="emi-section" id="emiSection">
+                    <div class="emi-header">
+                        <h4>💰 Partial Pay / Easy EMI</h4>
+                        <span class="emi-badge">New</span>
+                    </div>
+                    <p class="emi-desc">Pay a small amount now and the rest in easy monthly installments at just 3% interest per month.</p>
+                    
+                    <div class="emi-calc">
+                        <div class="emi-row">
+                            <span>Down Payment (20%)</span>
+                            <span class="emi-amount" id="emiDown">₹29,980</span>
+                        </div>
+                        <div class="emi-row">
+                            <span>Monthly EMI (3% p.m., 6 months)</span>
+                            <span class="emi-amount" id="emiMonthly">₹26,470</span>
+                        </div>
+                        <div class="emi-row">
+                            <span>Processing Fee (₹499)</span>
+                            <span class="emi-amount" style="color:#ff6161;">₹499</span>
+                        </div>
+                        <div class="emi-row">
+                            <span>Total Payable</span>
+                            <span class="emi-amount" id="emiTotal">₹1,88,699</span>
+                        </div>
+                    </div>
+                    <button class="btn-pay-now emi-btn" onclick="processPartialPay()">
+                        Pay ₹29,980 Now & Get EMI Option
+                    </button>
+                </div>
+
+                <button class="btn-pay-now confirm-btn" onclick="processPayment()">
+                    Confirm & Pay ₹<span id="confirmPayAmount">1,49,900</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- CONFIRMATION PAGE -->
+    <!-- ============ CONFIRMATION PAGE ============ -->
     <div class="page" id="page-confirm">
         <div class="order-confirm">
-            <div class="check">&#10004;</div>
-            <h2>Order Placed Successfully!</h2>
-            <p>Your order has been confirmed. You will receive a confirmation message shortly.</p>
+            <div class="check-icon">&#10004;</div>
+            <h2>Order Placed Successfully! 🎉</h2>
+            <p>Your Apple iPhone 17 Pro Max (Cosmic Orange, 256 GB) has been confirmed.</p>
+            <div class="order-details-confirm">
+                <div class="confirm-row"><span>Order ID:</span><span>#FK-ORD-<span id="orderIdDisplay">XXXXXXXX</span></span></div>
+                <div class="confirm-row"><span>Delivery by:</span><span><strong>Tomorrow, 22 May 2026</strong></span></div>
+                <div class="confirm-row"><span>Payment:</span><span id="confirmPaymentMethod">UPI / QR</span></div>
+            </div>
+            <p style="margin-top: 12px; font-size: 13px;">A confirmation message has been sent to your registered mobile & email.</p>
             <button class="btn-shop-now" onclick="showPage('home')" style="margin-top:20px;">Continue Shopping</button>
         </div>
     </div>
