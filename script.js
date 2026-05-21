@@ -1,43 +1,213 @@
 // ==============================
-// PRODUCT DATA (55 products)
+// PRODUCT DATA (iPhone 17 Pro Max + similar products)
 // ==============================
-const products = [
-    { id:1,  name:"iPhone 16 Pro Max 256GB",        price:159900, oldPrice:189900, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=iPhone16", rating:4.7 },
-    { id:2,  name:"Samsung Galaxy S25 Ultra",       price:124999, oldPrice:149999, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=S25U", rating:4.6 },
-    { id:3,  name:"OnePlus 13 Pro",                 price:69999,  oldPrice:84999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=OnePlus13", rating:4.5 },
-    { id:4,  name:"Sony WH-1000XM5 Headphones",     price:24999,  oldPrice:34999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=WH1000XM5", rating:4.8 },
-    { id:5,  name:"Apple MacBook Air M3",           price:99990,  oldPrice:114900, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=MacAirM3", rating:4.7 },
-    { id:6,  name:"Dell XPS 16 Laptop",             price:119990, oldPrice:139990, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=XPS16", rating:4.4 },
-    { id:7,  name:"iPad Air M2 11-inch",            price:54900,  oldPrice:64900,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=iPadAir", rating:4.6 },
-    { id:8,  name:"Samsung 65\" OLED 4K TV",        price:89990,  oldPrice:129990, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=SamsungTV", rating:4.5 },
-    { id:9,  name:"Noise ColorFit Pro 5 Watch",     price:3999,   oldPrice:7999,   category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=NoiseW", rating:4.3 },
-    { id:10, name:"JBL Flip 7 Bluetooth Speaker",   price:10999,  oldPrice:15999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=JBLF7", rating:4.6 },
-    { id:11, name:"Samsung Galaxy Tab S9",          price:64999,  oldPrice:79999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=TabS9", rating:4.5 },
-    { id:12, name:"Sennheiser Momentum 4",          price:29990,  oldPrice:39990,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=M4", rating:4.7 },
-    { id:13, name:"Logitech MX Master 3S Mouse",    price:7495,   oldPrice:9995,   category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=MX3S", rating:4.6 },
-    { id:14, name:"Nike Air Force 1 White",         price:7995,   oldPrice:9995,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=AF1", rating:4.5 },
-    { id:15, name:"Adidas Ultraboost Light",        price:13999,  oldPrice:17999,  category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Ultraboost", rating:4.4 },
-    { id:16, name:"Levi's 512 Slim Fit Jeans",      price:2499,   oldPrice:3999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Levis512", rating:4.3 },
-    { id:17, name:"H&M Men's Casual Shirt",         price:1299,   oldPrice:2499,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=HMShirt", rating:4.2 },
-    { id:18, name:"Puma T-Shirt Pack (3)",           price:1799,   oldPrice:2997,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=PumaPack", rating:4.4 },
-    { id:19, name:"Ray-Ban Aviator Sunglasses",     price:8499,   oldPrice:12999,  category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=RayBan", rating:4.6 },
-    { id:20, name:"Fastrack Reflex 3.0 Watch",      price:3995,   oldPrice:5995,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Fastrack", rating:4.1 },
-    { id:21, name:"Tommy Hilfiger Polo T-Shirt",    price:3499,   oldPrice:5499,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=TommyPolo", rating:4.5 },
-    { id:22, name:"Skechers Go Walk 6 Shoes",       price:5999,   oldPrice:8999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Skechers", rating:4.3 },
-    { id:23, name:"Zara Women's Dress",             price:2799,   oldPrice:4599,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=ZaraDress", rating:4.4 },
-    { id:24, name:"US Polo Assn. T-Shirt",          price:999,    oldPrice:1999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=USPolo", rating:4.3 },
-    { id:25, name:"Peter England Formal Shirt",      price:1499,   oldPrice:2999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=PeterEng", rating:4.2 },
-    { id:26, name:"IKEA KALLAX Shelf Unit",         price:5999,   oldPrice:7999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=KALLAX", rating:4.5 },
-    { id:27, name:"Bombay Dyeing 4-Pc Bedsheet",    price:1999,   oldPrice:3999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Bedsheet", rating:4.2 },
-    { id:28, name:"Philips Smart LED Bulb (5)",     price:2499,   oldPrice:4499,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=PhilipsLED", rating:4.4 },
-    { id:29, name:"Prestige Pressure Cooker 5L",    price:2599,   oldPrice:3999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Prestige", rating:4.6 },
-    { id:30, name:"Dyson V15 Detect Vacuum",        price:54990,  oldPrice:69990,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=DysonV15", rating:4.7 },
-    { id:31, name:"Bajaj 500W Mixer Grinder",       price:3999,   oldPrice:5499,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=BajajMixer", rating:4.3 },
-    { id:32, name:"Wakefit Orthopaedic Mattress",   price:14999,  oldPrice:24999,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Wakefit", rating:4.5 },
-    { id:33, name:"Havells Ceiling Fan",            price:3499,   oldPrice:5999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=HavellsFan", rating:4.2 },
-    { id:34, name:"Croma 1.5 Ton AC",               price:39999,  oldPrice:52999,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=CromaAC", rating:4.4 },
-    { id:35, name:"Godrej Refrigerator 260L",       price:27999,  oldPrice:35999,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=GodrejFridge", rating:4.3 },
-    { id:36, name:"Atomic Habits - James Clear",    price:399,    oldPrice:599,    category:"Books", img:"https://via.placeholder.com/200x200/2874f0/fff?text=AtomicH", rating:4.8 },
-    { id:37, name:"Rich Dad Poor Dad",              price:299,    oldPrice:499,    category:"Books", img:"https://via.placeholder.com/200x200/2874f0/fff?text=RDPD", rating:4.6 },
-    { id:38, name:"The Alchemist - Paulo Coelho",   price:249,    oldPrice:399,    category:"Books", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Alchemist", rating:4.7 },
-    { id:39, name:"Think and Grow Rich",            price:199,    oldPrice:350,    category:"Books", img:"https://via.placeholder.com/200x200/
+const FEATURED_PRODUCT = {
+    id: 1,
+    name: "Apple iPhone 17 Pro Max (Cosmic Orange, 256 GB)",
+    price: 149900,
+    oldPrice: 159900,
+    category: "Electronics",
+    img: "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/d/c/j/-original-imaghx5ggdchzghh.jpeg?q=70",
+    rating: 4.7,
+    color: "Cosmic Orange",
+    storage: "256 GB"
+};
+
+const similarProducts = [
+    { id:2,  name:"Apple iPhone 17 Pro (Deep Blue, 256 GB)",        price:134900, oldPrice:144900, category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/h/z/h/-original-imaghx5gzfhz69ts.jpeg?q=70", rating:4.6 },
+    { id:3,  name:"Samsung Galaxy S25 Ultra (Titanium Gray, 512GB)",price:124999, oldPrice:149999, category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/s/z/z/-original-imah2z8gghhykzfh.jpeg?q=70", rating:4.6 },
+    { id:4,  name:"OnePlus 13 Pro (Obsidian Black, 256GB)",         price:69999,  oldPrice:84999,  category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/0/e/7/-original-imah2z8ggwzuqksc.jpeg?q=70", rating:4.5 },
+    { id:5,  name:"Apple iPhone 16 Pro Max (Natural Titanium, 256GB)", price:139900, oldPrice:159900, category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/5/y/f/-original-imaghx5gqfpaez9y.jpeg?q=70", rating:4.7 },
+    { id:6,  name:"Google Pixel 10 Pro (Obsidian, 256GB)",         price:89999,  oldPrice:99999,  category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/1/3/4/-original-imah2z8gqeysfqhk.jpeg?q=70", rating:4.5 },
+    { id:7,  name:"Samsung Galaxy Z Fold 7 (Beige, 512GB)",        price:164999, oldPrice:184999, category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/r/j/e/-original-imah2z8ggnzajkvr.jpeg?q=70", rating:4.4 },
+    { id:8,  name:"Nothing Phone (4) Pro (White, 256GB)",          price:44999,  oldPrice:54999,  category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/x/j/3/-original-imah2z8ggmwbztdz.jpeg?q=70", rating:4.3 },
+    { id:9,  name:"Xiaomi 15 Pro (Titanium Silver, 512GB)",        price:79999,  oldPrice:89999,  category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/p/t/s/-original-imah2z8ggbhmzfuk.jpeg?q=70", rating:4.4 },
+    { id:10, name:"Vivo X200 Pro (Midnight Black, 256GB)",         price:59999,  oldPrice:69999,  category:"Electronics", img:"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/n/k/f/-original-imah2z8ggyfjzdta.jpeg?q=70", rating:4.5 },
+];
+
+const allProducts = [FEATURED_PRODUCT, ...similarProducts];
+
+// ==============================
+// STATE
+// ==============================
+let cart = JSON.parse(localStorage.getItem('flipkartCart')) || [];
+let selectedColor = "Cosmic Orange";
+let selectedStorage = "256 GB";
+let currentPrice = 149900;
+let currentOldPrice = 159900;
+let selectedPayment = "upi";
+let addressSaved = null;
+
+// ==============================
+// UTILITY
+// ==============================
+function formatPrice(n) {
+    return '₹' + n.toLocaleString('en-IN');
+}
+
+function discountPercent(oldPrice, newPrice) {
+    return Math.round(((oldPrice - newPrice) / oldPrice) * 100);
+}
+
+// ==============================
+// PAGE NAVIGATION
+// ==============================
+function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+    
+    if (page === 'cart') renderCart();
+    if (page === 'payment') initPayment();
+    if (page === 'home') renderSimilarProducts();
+}
+
+// ==============================
+// PRODUCT PAGE FUNCTIONS
+// ==============================
+function changeImage(imgEl) {
+    document.getElementById('mainProductImg').src = imgEl.src;
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    imgEl.classList.add('active');
+}
+
+function selectColor(el) {
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    selectedColor = el.dataset.color;
+    document.getElementById('selectedColorText').textContent = selectedColor;
+    
+    // Update main image based on color
+    const colorMap = {
+        "Cosmic Orange": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/d/c/j/-original-imaghx5ggdchzghh.jpeg?q=70",
+        "Silver": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/0/g/2/-original-imaghx5gj9mzfmcz.jpeg?q=70",
+        "Deep Blue": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/n/8/d/-original-imaghx5ggi2nhnhh.jpeg?q=70"
+    };
+    document.getElementById('mainProductImg').src = colorMap[selectedColor] || colorMap["Cosmic Orange"];
+}
+
+// ==============================
+// ADD TO CART / BUY NOW
+// ==============================
+function addToCart(product) {
+    const item = product || FEATURED_PRODUCT;
+    const cartItem = {
+        ...item,
+        qty: 1,
+        selectedColor: selectedColor,
+        selectedStorage: selectedStorage
+    };
+    
+    const existing = cart.find(x => x.id === item.id);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push(cartItem);
+    }
+    saveCart();
+    updateCartBadge();
+    showToast('Added to cart!');
+    showPage('cart');
+}
+
+function buyNow(product) {
+    const item = product || FEATURED_PRODUCT;
+    cart = [{
+        ...item,
+        qty: 1,
+        selectedColor: selectedColor,
+        selectedStorage: selectedStorage
+    }];
+    saveCart();
+    updateCartBadge();
+    showPage('cart');
+}
+
+function showToast(msg) {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = msg;
+    Object.assign(toast.style, {
+        position: 'fixed', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
+        background: '#212121', color: 'white', padding: '12px 28px', borderRadius: '6px',
+        fontSize: '14px', zIndex: '9999', boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+        animation: 'fadeInUp 0.3s ease'
+    });
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.3s'; setTimeout(() => toast.remove(), 300); }, 2000);
+}
+
+// Inject toast animation
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `@keyframes fadeInUp { from { opacity:0; transform:translateX(-50%) translateY(20px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }`;
+document.head.appendChild(styleSheet);
+
+// ==============================
+// CART OPERATIONS
+// ==============================
+function saveCart() {
+    localStorage.setItem('flipkartCart', JSON.stringify(cart));
+}
+
+function updateCartBadge() {
+    const total = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.getElementById('cartCount').textContent = total;
+}
+
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.id !== productId);
+    saveCart();
+    updateCartBadge();
+    renderCart();
+}
+
+function changeQty(productId, delta) {
+    const item = cart.find(x => x.id === productId);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) { removeFromCart(productId); return; }
+    saveCart();
+    updateCartBadge();
+    renderCart();
+}
+
+function renderCart() {
+    const list = document.getElementById('cartItemsList');
+    const details = document.getElementById('priceDetails');
+
+    if (cart.length === 0) {
+        list.innerHTML = `<div class="empty-cart"><p>Your cart is empty!</p><button class="btn-shop-now" onclick="showPage('home')">Shop Now</button></div>`;
+        details.innerHTML = '<p style="color:#878787;">No items</p>';
+        document.querySelector('.place-order-btn').style.display = 'none';
+        return;
+    }
+
+    document.querySelector('.place-order-btn').style.display = 'block';
+
+    list.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <img src="${item.img}" alt="${item.name}">
+            <div class="cart-item-info">
+                <h4>${item.name}</h4>
+                <div class="price">${formatPrice(item.price)}</div>
+                <div style="font-size:12px;color:#878787;">${item.selectedColor || ''}${item.selectedStorage ? ' | ' + item.selectedStorage : ''}</div>
+                <div class="cart-qty">
+                    <button onclick="changeQty(${item.id}, -1)">−</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty(${item.id}, 1)">+</button>
+                    <span style="margin-left:12px; color:#ff6161; cursor:pointer; font-size:13px; font-weight:500;" onclick="removeFromCart(${item.id})">Remove</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    const totalMrp = cart.reduce((s, i) => s + i.oldPrice * i.qty, 0);
+    const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const disc = totalMrp - totalPrice;
+    const delivery = totalPrice >= 499 ? 0 : 40;
+
+    details.innerHTML = `
+        <div class="summary-row"><span>Price (${cart.reduce((s,i) => s+i.qty,0)} items)</span><span>${formatPrice(totalMrp)}</span></div>
+        <div
