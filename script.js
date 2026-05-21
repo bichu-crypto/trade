@@ -1,3 +1,43 @@
-document.querySelector("button").addEventListener("click", function() {
-    alert("Welcome to Trading.net 🚀");
-});
+// ==============================
+// PRODUCT DATA (55 products)
+// ==============================
+const products = [
+    { id:1,  name:"iPhone 16 Pro Max 256GB",        price:159900, oldPrice:189900, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=iPhone16", rating:4.7 },
+    { id:2,  name:"Samsung Galaxy S25 Ultra",       price:124999, oldPrice:149999, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=S25U", rating:4.6 },
+    { id:3,  name:"OnePlus 13 Pro",                 price:69999,  oldPrice:84999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=OnePlus13", rating:4.5 },
+    { id:4,  name:"Sony WH-1000XM5 Headphones",     price:24999,  oldPrice:34999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=WH1000XM5", rating:4.8 },
+    { id:5,  name:"Apple MacBook Air M3",           price:99990,  oldPrice:114900, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=MacAirM3", rating:4.7 },
+    { id:6,  name:"Dell XPS 16 Laptop",             price:119990, oldPrice:139990, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=XPS16", rating:4.4 },
+    { id:7,  name:"iPad Air M2 11-inch",            price:54900,  oldPrice:64900,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=iPadAir", rating:4.6 },
+    { id:8,  name:"Samsung 65\" OLED 4K TV",        price:89990,  oldPrice:129990, category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=SamsungTV", rating:4.5 },
+    { id:9,  name:"Noise ColorFit Pro 5 Watch",     price:3999,   oldPrice:7999,   category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=NoiseW", rating:4.3 },
+    { id:10, name:"JBL Flip 7 Bluetooth Speaker",   price:10999,  oldPrice:15999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=JBLF7", rating:4.6 },
+    { id:11, name:"Samsung Galaxy Tab S9",          price:64999,  oldPrice:79999,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=TabS9", rating:4.5 },
+    { id:12, name:"Sennheiser Momentum 4",          price:29990,  oldPrice:39990,  category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=M4", rating:4.7 },
+    { id:13, name:"Logitech MX Master 3S Mouse",    price:7495,   oldPrice:9995,   category:"Electronics", img:"https://via.placeholder.com/200x200/2874f0/fff?text=MX3S", rating:4.6 },
+    { id:14, name:"Nike Air Force 1 White",         price:7995,   oldPrice:9995,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=AF1", rating:4.5 },
+    { id:15, name:"Adidas Ultraboost Light",        price:13999,  oldPrice:17999,  category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Ultraboost", rating:4.4 },
+    { id:16, name:"Levi's 512 Slim Fit Jeans",      price:2499,   oldPrice:3999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Levis512", rating:4.3 },
+    { id:17, name:"H&M Men's Casual Shirt",         price:1299,   oldPrice:2499,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=HMShirt", rating:4.2 },
+    { id:18, name:"Puma T-Shirt Pack (3)",           price:1799,   oldPrice:2997,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=PumaPack", rating:4.4 },
+    { id:19, name:"Ray-Ban Aviator Sunglasses",     price:8499,   oldPrice:12999,  category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=RayBan", rating:4.6 },
+    { id:20, name:"Fastrack Reflex 3.0 Watch",      price:3995,   oldPrice:5995,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Fastrack", rating:4.1 },
+    { id:21, name:"Tommy Hilfiger Polo T-Shirt",    price:3499,   oldPrice:5499,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=TommyPolo", rating:4.5 },
+    { id:22, name:"Skechers Go Walk 6 Shoes",       price:5999,   oldPrice:8999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Skechers", rating:4.3 },
+    { id:23, name:"Zara Women's Dress",             price:2799,   oldPrice:4599,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=ZaraDress", rating:4.4 },
+    { id:24, name:"US Polo Assn. T-Shirt",          price:999,    oldPrice:1999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=USPolo", rating:4.3 },
+    { id:25, name:"Peter England Formal Shirt",      price:1499,   oldPrice:2999,   category:"Clothing", img:"https://via.placeholder.com/200x200/2874f0/fff?text=PeterEng", rating:4.2 },
+    { id:26, name:"IKEA KALLAX Shelf Unit",         price:5999,   oldPrice:7999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=KALLAX", rating:4.5 },
+    { id:27, name:"Bombay Dyeing 4-Pc Bedsheet",    price:1999,   oldPrice:3999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Bedsheet", rating:4.2 },
+    { id:28, name:"Philips Smart LED Bulb (5)",     price:2499,   oldPrice:4499,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=PhilipsLED", rating:4.4 },
+    { id:29, name:"Prestige Pressure Cooker 5L",    price:2599,   oldPrice:3999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Prestige", rating:4.6 },
+    { id:30, name:"Dyson V15 Detect Vacuum",        price:54990,  oldPrice:69990,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=DysonV15", rating:4.7 },
+    { id:31, name:"Bajaj 500W Mixer Grinder",       price:3999,   oldPrice:5499,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=BajajMixer", rating:4.3 },
+    { id:32, name:"Wakefit Orthopaedic Mattress",   price:14999,  oldPrice:24999,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Wakefit", rating:4.5 },
+    { id:33, name:"Havells Ceiling Fan",            price:3499,   oldPrice:5999,   category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=HavellsFan", rating:4.2 },
+    { id:34, name:"Croma 1.5 Ton AC",               price:39999,  oldPrice:52999,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=CromaAC", rating:4.4 },
+    { id:35, name:"Godrej Refrigerator 260L",       price:27999,  oldPrice:35999,  category:"Home", img:"https://via.placeholder.com/200x200/2874f0/fff?text=GodrejFridge", rating:4.3 },
+    { id:36, name:"Atomic Habits - James Clear",    price:399,    oldPrice:599,    category:"Books", img:"https://via.placeholder.com/200x200/2874f0/fff?text=AtomicH", rating:4.8 },
+    { id:37, name:"Rich Dad Poor Dad",              price:299,    oldPrice:499,    category:"Books", img:"https://via.placeholder.com/200x200/2874f0/fff?text=RDPD", rating:4.6 },
+    { id:38, name:"The Alchemist - Paulo Coelho",   price:249,    oldPrice:399,    category:"Books", img:"https://via.placeholder.com/200x200/2874f0/fff?text=Alchemist", rating:4.7 },
+    { id:39, name:"Think and Grow Rich",            price:199,    oldPrice:350,    category:"Books", img:"https://via.placeholder.com/200x200/
